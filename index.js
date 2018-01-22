@@ -37,6 +37,8 @@ $('.cell').not('r ch').click(function (e) {
     }
 })
 $('.restart-btn').click(function (e) {
+    $('.undo-btn').attr('disabled', true);
+    $('.redo-btn').attr('disabled', true);
     $('.won-title').addClass('hidden');
     actionNumber = 0;
     stopGame = false;
