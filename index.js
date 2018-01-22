@@ -7,8 +7,8 @@ for (let index = 0; index < 9; index++) {
     state[`c-${index}`] = null;
 }
 gameHistory.push(state);
-$('.cell').click(function (e) {
-
+$('.cell').not('r ch').click(function (e) {
+    console.log('test')
     if (gameHistory.length > (currentStep + 1)) {
         gameHistory.length = (currentStep + 1);
     }
