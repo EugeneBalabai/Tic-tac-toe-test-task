@@ -65,6 +65,11 @@ $('.undo-btn').click(function (e) {
         }
         checkBtnStatus();
     }
+    if (currentStep % 2 == 0) {
+        action = 'ch'
+    } else {
+        action = 'r'
+    }
 
 });
 
