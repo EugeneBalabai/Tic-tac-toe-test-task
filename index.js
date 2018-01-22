@@ -19,9 +19,9 @@ $('.cell').click(function (e) {
         state[`c-${index}`] = checkClass('#' + `c-${index}`)
     }
     gameHistory.push(state);
-    if (action == 'r') {
-        checkWinner();
-    }
+
+    checkWinner();
+
 
     //меняем ход
     (action == 'ch') ? action = 'r': action = 'ch';
