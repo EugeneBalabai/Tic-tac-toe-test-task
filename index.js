@@ -3,11 +3,15 @@ var action = 'ch';
 var winner = '';
 var state = {};
 var currentStep = 0;
+var stopGame = false;
 for (let index = 0; index < 9; index++) {
     state[`c-${index}`] = null;
 }
 gameHistory.push(state);
 $('.cell').not('r ch').click(function (e) {
+    if (stopGame) {
+        return;
+    }
     console.log('test')
     if (gameHistory.length > (currentStep + 1)) {
         gameHistory.length = (currentStep + 1);
@@ -35,6 +39,7 @@ $('.cell').not('r ch').click(function (e) {
 $('.restart-btn').click(function (e) {
     $('.won-title').addClass('hidden');
     actionNumber = 0;
+    stopGame = false;
     winner = '';
     gameHistory = [];
     state = {};
@@ -125,6 +130,7 @@ function checkWinner() {
         }
     }
     if (winner != '') {
+        stopGame = true;
         $('.won-title').removeClass('hidden')
         if (winner == 'ch') {
             $('.won-message').text('Crosses won!')
